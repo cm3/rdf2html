@@ -1,0 +1,170 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix species: <http://lod.ac/ns/species#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+<http://lod.ac/ns/species> a owl:Ontology;
+    dcterms:title "SPECIES Vocabulary";
+    dc:license "http://creativecommons.org/licenses/by/3.0/";
+    dcterms:modified "2015-02-07"^^xsd:date;
+    vann:preferredNamespaceUri "http://lod.ac/ns/species#";
+    vann:preferredNamespacePrefix "species";
+    foaf:homepage <http://lod.ac/ns/species.html>;
+    dcterms:created "2013-07-19"^^xsd:date;
+    dcterms:partOf <http://lod.ac/ns>;
+    dcterms:type <http://purl.org/adms/assettype/Ontology>;
+    dcterms:status <http://purl.org/adms/status/UnderDevelopment>;
+    dc:creator species:LODAC .
+
+species:ttl
+    dcterms:FileFormat <>;
+    dcterms:license <http://creativecommons.org/licenses/by/3.0/> .
+
+species:rdf
+    dcterms:FileFormat <>;
+    dcterms:license <http://creativecommons.org/licenses/by/3.0/> .
+
+species:LODAC a foaf:Person;
+    foaf:nick "LODAC" .
+
+species:CommonName a rdfs:Class, owl:Class;
+    rdfs:label "Common Name";
+    rdfs:subClassOf species:TaxonName .
+
+species:ScientificName a rdfs:Class, owl:Class;
+    rdfs:label "Scientific Name";
+    rdfs:subClassOf species:TaxonName .
+
+species:TaxonName a rdfs:Class, owl:Class;
+    rdfs:label "TaxonName" .
+
+species:TaxonRank a rdfs:Class, owl:Class;
+    rdfs:label "TaxonRank";
+    rdfs:comment "Taxon Name" .
+
+species:authorship a rdf:Property;
+    rdfs:label "authorship";
+    rdfs:comment "命名者" .
+
+species:collectedDate a rdf:Property;
+    rdfs:label "collectedDate";
+    rdfs:comment """自由記述(元データ依存)
+正規化された値はdc:created
+""" .
+
+species:collectionLocality a rdf:Property;
+    rdfs:label "collectionLocality";
+    rdfs:comment "標本産地，採集場所" .
+
+species:collector a rdf:Property;
+    rdfs:label "collector";
+    rdfs:comment "採集者" .
+
+species:comment a rdf:Property;
+    rdfs:label "comment";
+    rdfs:subPropertyOf owl:topDataProperty .
+
+species:extinct a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "extinct";
+    rdfs:comment "絶滅か否か";
+    rdfs:range xsd:boolean .
+
+species:hasCultivar a rdf:Property;
+    rdfs:label "hasCultivar" .
+
+species:hasInfraSpecificEpithetRank a rdf:Property;
+    rdfs:label "hasInfraSpecificEpithetRank" .
+
+species:hasInfragenericEpithet a rdf:Property;
+    rdfs:label "hasInfragenericEpithet";
+    owl:sameAs <http://rs.tdwg.org/dwc/terms/infraspecificEpithet> .
+
+species:hasInfraspecificEpithet a rdf:Property;
+    rdfs:label "hasInfraspecificEpithet" .
+
+species:hasNCBITaxonomyID a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "hasNCBITaxonomyID";
+    rdfs:comment "NCBI Taxonomy ID";
+    rdfs:range xsd:integer .
+
+species:hasSpecificEpithet a rdf:Property;
+    rdfs:label "hasSpecificEpithet" .
+
+species:hasSubspRange a rdf:Property;
+    rdfs:label "hasSubspRange" .
+
+species:institutionCode a rdf:Property;
+    rdfs:label "institutionCode";
+    rdfs:comment "機関コード" .
+
+species:institutionName a rdf:Property;
+    rdfs:label "institutionName";
+    rdfs:comment "機関名" .
+
+species:reference a rdf:Property;
+    rdfs:label "reference";
+    rdfs:comment "参考文献" .
+
+species:hasBOLDPage a rdf:Property;
+    rdfs:label "hasBOLDPage";
+    rdfs:subPropertyOf species:hasPage .
+
+species:hasBasionym a rdf:Property;
+    rdfs:label "hasBasionym";
+    rdfs:comment "旧名";
+    rdfs:subPropertyOf species:hasSynonym .
+
+species:hasCommonName a rdf:Property;
+    rdfs:label "hasCommonName";
+    rdfs:comment "和名，英名等の俗名";
+    rdfs:domain species:ScientificName;
+    rdfs:range species:CommonName;
+    rdfs:subPropertyOf species:hasTaxonName .
+
+species:hasNCBIPage a rdf:Property;
+    rdfs:label "hasNCBIPage";
+    rdfs:comment "NCBI Taxonomy のページへのリンク";
+    rdfs:subPropertyOf species:hasPage .
+
+species:hasPage a rdf:Property;
+    rdfs:label "hasPage" .
+
+species:hasScientificName a rdf:Property;
+    rdfs:label "hasScientificName";
+    rdfs:comment "学名";
+    rdfs:domain species:CommonName;
+    rdfs:range species:ScientificName;
+    rdfs:subPropertyOf species:hasTaxonName .
+
+species:hasSuperTaxon a rdf:Property;
+    rdfs:label "hasSuperTaxon";
+    rdfs:comment "上位の種名" .
+
+species:hasSynonym a rdf:Property;
+    rdfs:label "hasSynonym";
+    rdfs:comment "同義語";
+    rdfs:subPropertyOf species:hasTaxonName .
+
+species:hasTaxonName a rdf:Property;
+    rdfs:label "hasTaxonName";
+    rdfs:comment "Taxon Nameへのリンク" .
+
+species:hasTaxonRank a rdf:Property;
+    rdfs:label "hasTaxonRank";
+    rdfs:comment "TaxonRankへのリンク" .
+
+species:isTypeSpeciesOf a rdf:Property;
+    rdfs:label "isTypeSpeciesOf" .
+
+species:species a rdf:Property;
+    rdfs:label "species";
+    rdfs:comment "標本の種(名)" .
+
+species:typeSpecies a rdf:Property;
+    rdfs:label "typeSpecies";
+    rdfs:comment "属の基準種" .

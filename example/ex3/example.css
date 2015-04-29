@@ -1,0 +1,16 @@
+body {
+    padding: 20px 0px;
+}
+
+.leaflet-container {
+    height: 300px;
+}
+
+td.col1{
+    width: 30%;
+}
+
+h5{
+    background-color:#EEEEEE;
+    padding: 0.5em;
+}

@@ -1,0 +1,46 @@
+@prefix ns1: <http://purl.org/oslo/ns/localgov#> .
+@prefix ns0: <http://www.w3.org/ns/regorg#> .
+@prefix dc: <http://purl.org/dc/terms/> .
+@prefix ns2: <http://www.w3.org/ns/adms#> .
+@prefix void: <http://rdfs.org/ns/void#> .
+@prefix hydra: <http://www.w3.org/ns/hydra/core#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+<http://ewi.mmlab.be/cd/id/organisatie/DESUNIORG02>
+  a ns1:Organization ;
+  ns0:legalName "OCMW Destelbergen" ;
+  dc:alternative "OCMW Destelbergen", "OCMW" ;
+  ns1:contact <http://ewi.mmlab.be/cd/id/contact/DESUNICON026> ;
+  ns1:hasChannel <http://ewi.mmlab.be/cd/id/kanaal/DESUNIKAN24>, <http://ewi.mmlab.be/cd/id/kanaal/DESUNIKAN25>, <http://ewi.mmlab.be/cd/id/kanaal/DESUNIKAN22>, <http://ewi.mmlab.be/cd/id/kanaal/DESUNIKAN23>, <http://ewi.mmlab.be/cd/id/kanaal/DESUNIKAN21> ;
+  ns1:hasRoleInActivity <http://ewi.mmlab.be/cd/id/bezigheid/DESUNIBEZ021> ;
+  ns1:mailingLocation <http://ewi.mmlab.be/cd/id/locatie/DESUNILOC003> ;
+  ns2:identifier <http://ewi.mmlab.be/cd/id/identificatie/DESUNIORG02> .
+
+<http://ewi.mmlab.be/cd/all#dataset>
+  a void:Dataset, _:b0 ,  hydra:Collection ;
+  hydra:search [
+    a hydra:IriTemplate ;
+    hydra:template "http://ewi.mmlab.be/cd/all{?subject,predicate,object}" ;
+    hydra:mapping [
+      a hydra:IriTemplateMapping ;
+      hydra:variable "subject" ;
+      hydra:property rdf:subject
+    ], [
+      a hydra:IriTemplateMapping ;
+      hydra:variable "predicate" ;
+      hydra:property rdf:predicate
+    ], [
+      a hydra:IriTemplateMapping ;
+      hydra:variable "object" ;
+      hydra:property rdf:object
+    ]
+  ] ;
+  void:subset <http://ewi.mmlab.be/cd/all?subject=http%3A%2F%2Fewi.mmlab.be%2Fcd%2Fid%2Forganisatie%2FDESUNIORG02> .
+
+_:b0 a _:b1 .
+_:b1 a _:b0 .
+<http://ewi.mmlab.be/cd/all?subject=http%3A%2F%2Fewi.mmlab.be%2Fcd%2Fid%2Forganisatie%2FDESUNIORG02>
+  hydra:totalItems 13 ;
+  void:triples 13 ;
+  hydra:itemsPerPage 100 ;
+  hydra:firstPage <http://ewi.mmlab.be/cd/all?subject=http%3A%2F%2Fewi.mmlab.be%2Fcd%2Fid%2Forganisatie%2FDESUNIORG02&limit=100&offset=0> .
