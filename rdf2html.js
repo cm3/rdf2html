@@ -20,13 +20,14 @@ var plugins = {
     'triples': require('./plugins/triples/triples.js'),
     'ontology': require('./plugins/ontology/ontology.js'),
     'map': require('./plugins/map/map.js'),
-    'paging' : require('./plugins/paging/paging.js')
+    'paging' : require('./plugins/paging/paging.js'),
+    'vocaburary': require('./plugins/vocaburary/vocaburary.js'),
 }
 
 // Defaults for configuration
 var defaults = {
     // Default called plugins
-    plugins: ['triples', 'ontology', 'map','paging'],
+    plugins: ['triples', 'ontology', 'map', 'paging'],
     // Log information to the console
     verbose: false
 }
